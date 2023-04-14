@@ -616,6 +616,12 @@ import UIKit
 		renderer.updateOutlineColors()
 	}
 	
+	open override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+		var bounds: CGRect = self.bounds
+		bounds = CGRectInset(bounds, -20, -30) // basic: CGRectInset(bounds, -10, -15)
+		return CGRectContainsPoint(bounds, point)
+	}
+	
 	override open func layoutSubviews() {
 		super.layoutSubviews()
 		self.setNeedsDisplay()
